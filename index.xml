@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jarosław Pawlak</title>
+    <link>https://jaropawlak.com/</link>
+    <description>Recent content on Jarosław Pawlak</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 07 Aug 2019 22:02:16 +0200</lastBuildDate>
+    
+	<atom:link href="https://jaropawlak.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cloudkitjs</title>
+      <link>https://jaropawlak.com/draft/cloudkitjs/</link>
+      <pubDate>Wed, 07 Aug 2019 22:02:16 +0200</pubDate>
+      
+      <guid>https://jaropawlak.com/draft/cloudkitjs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Xamarin Forms Binary Size</title>
+      <link>https://jaropawlak.com/draft/xamarin-forms-binary-size/</link>
+      <pubDate>Wed, 07 Aug 2019 22:01:56 +0200</pubDate>
+      
+      <guid>https://jaropawlak.com/draft/xamarin-forms-binary-size/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Coredata With Cloudkit</title>
+      <link>https://jaropawlak.com/draft/coredata-with-cloudkit/</link>
+      <pubDate>Wed, 07 Aug 2019 22:01:19 +0200</pubDate>
+      
+      <guid>https://jaropawlak.com/draft/coredata-with-cloudkit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://jaropawlak.com/about/</link>
+      <pubDate>Wed, 07 Aug 2019 06:12:58 +0200</pubDate>
+      
+      <guid>https://jaropawlak.com/about/</guid>
+      <description>I&amp;rsquo;m a software developer working with .NET Framework for more then 15 years now. I remember version 1.0 and have worked with all versions. I also write software for iOS. And desktop apps.
+And console apps.
+And webapps in other technologies.
+And other stuff :)
+My first computer was ATARI 65XE with BASIC interpreter on board. I was 7 years old. I was hooked with first line of code which might have looked like this:</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://jaropawlak.com/2019/hello-world/</link>
+      <pubDate>Tue, 06 Aug 2019 06:31:49 +0200</pubDate>
+      
+      <guid>https://jaropawlak.com/2019/hello-world/</guid>
+      <description>Hi, my name is Jaroslaw and this is my first post.
+Usually, beginning learning new programming language starts with &amp;ldquo;Hello, World&amp;rdquo; application, therefore I&amp;rsquo;ll start with Hello World post.
+This blog is generated with hugo content generator and is hosted as a github page. I&amp;rsquo;m using automatic deployment, setup can be found here: https://gohugo.io/hosting-and-deployment/hosting-on-github/. If you see it, it means it worked like a charm ;).
+Well then&amp;hellip;
+Hello, World</description>
+    </item>
+    
+  </channel>
+</rss>

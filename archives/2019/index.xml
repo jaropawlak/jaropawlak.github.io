@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2019 on Jarosław Pawlak</title>
+    <link>https://jaropawlak.com/archives/2019/</link>
+    <description>Recent content in 2019 on Jarosław Pawlak</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 07 Aug 2019 22:02:16 +0200</lastBuildDate>
+    
+	<atom:link href="https://jaropawlak.com/archives/2019/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cloudkitjs</title>
+      <link>https://jaropawlak.com/draft/cloudkitjs/</link>
+      <pubDate>Wed, 07 Aug 2019 22:02:16 +0200</pubDate>
+      
+      <guid>https://jaropawlak.com/draft/cloudkitjs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Xamarin Forms Binary Size</title>
+      <link>https://jaropawlak.com/draft/xamarin-forms-binary-size/</link>
+      <pubDate>Wed, 07 Aug 2019 22:01:56 +0200</pubDate>
+      
+      <guid>https://jaropawlak.com/draft/xamarin-forms-binary-size/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Coredata With Cloudkit</title>
+      <link>https://jaropawlak.com/draft/coredata-with-cloudkit/</link>
+      <pubDate>Wed, 07 Aug 2019 22:01:19 +0200</pubDate>
+      
+      <guid>https://jaropawlak.com/draft/coredata-with-cloudkit/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Jarosław Pawlak</title>
+    <link>https://jaropawlak.com/post/</link>
+    <description>Recent content in Posts on Jarosław Pawlak</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Aug 2019 06:31:49 +0200</lastBuildDate>
+    
+	<atom:link href="https://jaropawlak.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://jaropawlak.com/2019/hello-world/</link>
+      <pubDate>Tue, 06 Aug 2019 06:31:49 +0200</pubDate>
+      
+      <guid>https://jaropawlak.com/2019/hello-world/</guid>
+      <description>Hi, my name is Jaroslaw and this is my first post.
+Usually, beginning learning new programming language starts with &amp;ldquo;Hello, World&amp;rdquo; application, therefore I&amp;rsquo;ll start with Hello World post.
+This blog is generated with hugo content generator and is hosted as a github page. I&amp;rsquo;m using automatic deployment, setup can be found here: https://gohugo.io/hosting-and-deployment/hosting-on-github/. If you see it, it means it worked like a charm ;).
+Well then&amp;hellip;
+Hello, World</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Archives on Jarosław Pawlak</title>
+    <link>https://jaropawlak.com/archives/</link>
+    <description>Recent content in Archives on Jarosław Pawlak</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 07 Aug 2019 22:02:16 +0200</lastBuildDate>
+    
+	<atom:link href="https://jaropawlak.com/archives/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2019</title>
+      <link>https://jaropawlak.com/archives/2019/</link>
+      <pubDate>Wed, 07 Aug 2019 22:02:16 +0200</pubDate>
+      
+      <guid>https://jaropawlak.com/archives/2019/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

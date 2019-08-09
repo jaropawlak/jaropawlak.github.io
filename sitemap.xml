@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://jaropawlak.com/archives/2019/</loc>
+    <lastmod>2019-08-07T22:02:16+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaropawlak.com/archives/</loc>
+    <lastmod>2019-08-07T22:02:16+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaropawlak.com/draft/cloudkitjs/</loc>
+    <lastmod>2019-08-07T22:02:16+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaropawlak.com/draft/</loc>
+    <lastmod>2019-08-07T22:02:16+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaropawlak.com/</loc>
+    <lastmod>2019-08-07T22:02:16+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaropawlak.com/draft/xamarin-forms-binary-size/</loc>
+    <lastmod>2019-08-07T22:01:56+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaropawlak.com/draft/coredata-with-cloudkit/</loc>
+    <lastmod>2019-08-07T22:01:19+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaropawlak.com/about/</loc>
+    <lastmod>2019-08-07T06:12:58+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaropawlak.com/2019/hello-world/</loc>
+    <lastmod>2019-08-06T06:31:49+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaropawlak.com/post/</loc>
+    <lastmod>2019-08-06T06:31:49+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaropawlak.com/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
