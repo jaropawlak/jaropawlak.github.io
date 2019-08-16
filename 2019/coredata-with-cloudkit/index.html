@@ -12,7 +12,7 @@
 <meta property = 'og:description' content = 'With iOS 13 we&rsquo;ll get new cool feature - coredata db with cloudkit backup. Exactly what I need.
 Bad news is that my old device will not get the …'>
 <meta property = 'og:url' content = 'https://jaropawlak.com/2019/coredata-with-cloudkit/' />
-<meta property = 'og:image' content = 'images/%!s()'/>
+<meta property = 'og:image' content = 'https://jaropawlak.com/images/coredatacloudkit/coredata.png'/>
 <link rel='apple-touch-icon' sizes='180x180' href='https://jaropawlak.com/images/icons/apple-touch-icon.png'>
 <link rel='icon' type='image/png' sizes='32x32' href='https://jaropawlak.com/images/icons/favicon-32x32.png'>
 <link rel='icon' type='image/png' sizes='16x16' href='https://jaropawlak.com/images/icons/favicon-16x16.png'>
@@ -48,7 +48,7 @@ Bad news is that my old device will not get the …'>
     <main>
       
 
-<section class = 'post_header' style = 'background-image:url(images/%25!s%28%3cnil%3e%29);'>
+<section class = 'post_header' style = 'background-image:url(https://jaropawlak.com/images/coredatacloudkit/coredata.png);'>
   <h1 class='post_title' itemprop='name headline'>Coredata With Cloudkit</h1>
 </section>
 <div class = 'post'>
@@ -61,7 +61,7 @@ I did the tracking for few weeks in excel sheet but an app would be so much conv
 
 <p>I thought about simple logger in iOS and a website to generate reports. This is the place where merged cloudkit and coredata would help a lot. It turns out manually adding cloud backup is really easy. Here is the quick doc of the changes required:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// befor... usual stuff</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// before... usual stuff</span>
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Repository</span> {
     <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">createLogItem</span>() -&gt; LogItem {
         <span style="color:#66d9ef">return</span> LogItem( context: context!)

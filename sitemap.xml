@@ -20,6 +20,30 @@
   </url>
   
   <url>
+    <loc>https://jaropawlak.com/tags/</loc>
+    <lastmod>2019-08-15T22:01:19+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaropawlak.com/tags/cloudkit/</loc>
+    <lastmod>2019-08-15T22:01:19+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaropawlak.com/tags/coredata/</loc>
+    <lastmod>2019-08-15T22:01:19+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaropawlak.com/tags/swift/</loc>
+    <lastmod>2019-08-15T22:01:19+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jaropawlak.com/archives/2019/</loc>
     <lastmod>2019-08-07T22:02:16+02:00</lastmod>
     <priority>0</priority>
@@ -55,11 +79,6 @@
   <url>
     <loc>https://jaropawlak.com/2019/hello-world/</loc>
     <lastmod>2019-08-06T06:31:49+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jaropawlak.com/tags/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>

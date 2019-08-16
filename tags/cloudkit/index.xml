@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cloudkit on Jarosław Pawlak</title>
+    <link>https://jaropawlak.com/tags/cloudkit/</link>
+    <description>Recent content in cloudkit on Jarosław Pawlak</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 Aug 2019 22:01:19 +0200</lastBuildDate>
+    
+	<atom:link href="https://jaropawlak.com/tags/cloudkit/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Coredata With Cloudkit</title>
+      <link>https://jaropawlak.com/2019/coredata-with-cloudkit/</link>
+      <pubDate>Thu, 15 Aug 2019 22:01:19 +0200</pubDate>
+      
+      <guid>https://jaropawlak.com/2019/coredata-with-cloudkit/</guid>
+      <description>With iOS 13 we&amp;rsquo;ll get new cool feature - coredata db with cloudkit backup. Exactly what I need.
+Bad news is that my old device will not get the update.
+My doctor said that I should track food I eat. What I should do is divide my day into 2-3 hour windows and eat a small meal in every one of them. And write it down and then show it to the doctor so we can talk about what I should and what I should not eat.</description>
+    </item>
+    
+  </channel>
+</rss>
