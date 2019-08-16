@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+  <title>Coredata with cloudkit | Jarosław Pawlak</title>
+  <meta charset='utf-8'>
+  <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+  <meta http-equiv = 'X-UA-Compatible' content = 'IE=edge'>
+  <meta name = 'SKYPE_TOOLBAR' content = 'SKYPE_TOOLBAR_PARSER_COMPATIBLE' /><meta name = 'keywords' content = 'Jarosław Pawlak'>
+<meta property = 'og:locale' content = 'en_US' />
+<meta property = 'og:type' content = 'article' />
+<meta property = 'og:title' content = 'Coredata With Cloudkit' />
+<meta property = 'og:description' content = 'With iOS 13 we&rsquo;ll get new cool feature - coredata db with cloudkit backup. Exactly what I need.
+Bad news is that my old device will not get the …'>
+<meta property = 'og:url' content = 'https://jaropawlak.com/2019/coredata-with-cloudkit/' />
+<meta property = 'og:image' content = 'images/%!s()'/>
+<link rel='apple-touch-icon' sizes='180x180' href='https://jaropawlak.com/images/icons/apple-touch-icon.png'>
+<link rel='icon' type='image/png' sizes='32x32' href='https://jaropawlak.com/images/icons/favicon-32x32.png'>
+<link rel='icon' type='image/png' sizes='16x16' href='https://jaropawlak.com/images/icons/favicon-16x16.png'>
+<link rel='manifest' href='https://jaropawlak.com/images/icons/site.webmanifest'>
+<link rel='mask-icon' href='https://jaropawlak.com/images/icons/safari-pinned-tab.svg' color='#5bbad5'>
+<meta name='msapplication-TileColor' content='#da532c'>
+<meta name='theme-color' content='#ffffff'>
+  <link rel='canonical' href='https://jaropawlak.com/2019/coredata-with-cloudkit/'>
+  <link rel = 'stylesheet' href = 'https://jaropawlak.com/css/main.f7fdc69e1bf81a1071613e7f9d93da0978c76552afe42eccf585cbdf09ebaa8acfb8a5f8cb74d463c64d2e691191618f0c6bcfc34a1b6d96f5d2cc6c97a3f131.css' integrity = 'sha512-9/3Gnhv4GhBxYT5/nZPaCXjHZVKv5C7M9YXL3wnrqorPuKX4y3TUY8ZNLmkRkWGPDGvPw0obbZb10sxsl6PxMQ=='>
+</head>
+
+  <body>
+    <div class = 'nav-drop'>
+  <div class = 'nav-body'>
+    
+      <a href = 'https://jaropawlak.com/about/' class = 'nav_item'>About</a>
+    
+      <a href = 'https://jaropawlak.com/' class = 'nav_item'>Blog</a>
+    
+    <div class = 'nav-close'></div>
+  </div>
+</div>
+<header class = 'nav' >
+  <nav class = 'nav-menu'>
+    <a href='https://jaropawlak.com/' class = 'nav-brand nav_item'>Jarosław Pawlak</a>
+    <div class = 'nav_bar-wrap'>
+      <div class = 'nav_bar'></div>
+    </div>
+  </nav>
+</header>
+
+
+    <main>
+      
+
+<section class = 'post_header' style = 'background-image:url(images/%25!s%28%3cnil%3e%29);'>
+  <h1 class='post_title' itemprop='name headline'>Coredata With Cloudkit</h1>
+</section>
+<div class = 'post'>
+  <article class='post_content'>
+    <p>With iOS 13 we&rsquo;ll get new cool feature - coredata db with cloudkit backup. Exactly what I need.<br />
+Bad news is that my old device will not get the update.</p>
+
+<p>My doctor said that I should track food I eat. What I should do is divide my day into 2-3 hour windows and eat a small meal in every one of them. And write it down and then show it to the doctor so we can talk about what I should and what I should not eat.<br />
+I did the tracking for few weeks in excel sheet but an app would be so much convenient!</p>
+
+<p>I thought about simple logger in iOS and a website to generate reports. This is the place where merged cloudkit and coredata would help a lot. It turns out manually adding cloud backup is really easy. Here is the quick doc of the changes required:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// befor... usual stuff</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Repository</span> {
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">createLogItem</span>() -&gt; LogItem {
+        <span style="color:#66d9ef">return</span> LogItem( context: context!)
+    }
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">deleteItem</span>(<span style="color:#66d9ef">_</span> item: LogItem) {
+        context?.delete(item)
+    }
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">saveChanges</span>() {
+        save()
+    }
+     <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getItems</span>() -&gt; [LogItem] {
+        <span style="color:#66d9ef">do</span>
+        {
+            <span style="color:#66d9ef">let</span> fetchRequest = NSFetchRequest&lt;LogItem&gt;(entityName: <span style="color:#e6db74">&#34;LogItem&#34;</span>)
+            <span style="color:#66d9ef">let</span> sort = NSSortDescriptor(key: <span style="color:#e6db74">&#34;date&#34;</span>, ascending: <span style="color:#66d9ef">false</span>)
+            fetchRequest.sortDescriptors = [sort]
+            <span style="color:#66d9ef">let</span> items = <span style="color:#66d9ef">try</span> context?.fetch(fetchRequest) <span style="color:#66d9ef">as</span>! [LogItem]
+            
+            <span style="color:#66d9ef">return</span> items
+        }
+        <span style="color:#66d9ef">catch</span>
+        {
+            print(error)
+            <span style="color:#66d9ef">return</span> []
+        }
+    }
+}</code></pre></div>
+
+<p>First of all, I have renamed Repository to DataRepository and created CloudRepository and a new Repository class.
+Cloud repository looks like this</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CloudRepository</span> {
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">addLogItem</span>(<span style="color:#66d9ef">_</span> item: LogItem ,callback: @escaping (CKRecord?, Error?) -&gt; Void)
+    {
+        <span style="color:#66d9ef">let</span> container = CKContainer.<span style="color:#66d9ef">default</span>()
+        <span style="color:#66d9ef">let</span> db = container.privateCloudDatabase
+        <span style="color:#66d9ef">let</span> record =  item.recordId == <span style="color:#66d9ef">nil</span> ? 
+                            CKRecord(recordType: <span style="color:#e6db74">&#34;LogItem&#34;</span>) : 
+                            CKRecord(recordType: <span style="color:#e6db74">&#34;LogItem&#34;</span>, 
+                                recordID: CKRecord.ID(recordName: item.recordId!))
+        record[<span style="color:#e6db74">&#34;date&#34;</span>] = item.date
+        record[<span style="color:#e6db74">&#34;text&#34;</span>] = item.text
+        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> category = item.category?.recordId {
+            record[<span style="color:#e6db74">&#34;category&#34;</span>] = CKRecord.Reference(recordID: 
+                                    CKRecord.ID(recordName: category), 
+                                    action: CKRecord_Reference_Action.deleteSelf)
+        }        
+        db.save(record) { (record, error) <span style="color:#66d9ef">in</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> e = error
+            {
+                print (e)
+            }
+            DispatchQueue.main.async {
+                callback(record, error)
+            }
+        }
+    }
+
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">deleteLogItem</span>(<span style="color:#66d9ef">_</span> item: LogItem) {
+        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> rName = item.recordId {
+            <span style="color:#66d9ef">let</span> container = CKContainer.<span style="color:#66d9ef">default</span>()
+            <span style="color:#66d9ef">let</span> db = container.privateCloudDatabase
+            db.delete(withRecordID: CKRecord.ID(recordName: rName)) { (id, err) <span style="color:#66d9ef">in</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> err = err {
+                    print (err)
+                }
+            }
+        }
+    }
+}</code></pre></div>
+
+<p>And the new Repository (wchich has the same interface as current DataRepository so I don&rsquo;t have to change other source files) is:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Repository</span>
+{
+    <span style="color:#66d9ef">let</span> cloud = CloudRepository()
+    <span style="color:#66d9ef">let</span> db = DataRepository()
+    
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">createLogItem</span>() -&gt; LogItem {
+        <span style="color:#66d9ef">return</span> db.createLogItem()
+    }
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">deleteItem</span>(<span style="color:#66d9ef">_</span> item: LogItem) {
+        cloud.deleteLogItem(item)
+        db.deleteItem(item)
+    }
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">saveChanges</span>() {
+        db.saveChanges()
+    }
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">addItem</span>(<span style="color:#66d9ef">_</span> item: LogItem)
+    {
+        cloud.addLogItem(item){ cloudItem , error <span style="color:#66d9ef">in</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> rn = cloudItem?.recordID.recordName {
+                item.recordId = rn
+            }
+            <span style="color:#66d9ef">self</span>.db.addItem(item)
+        }
+    }
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getItems</span>() -&gt; [LogItem] {
+        <span style="color:#66d9ef">do</span>
+        {
+            <span style="color:#66d9ef">let</span> items = db.getItems()
+            
+            <span style="color:#75715e">// part below is made so the items I have added before writing cloud sync </span>
+            <span style="color:#75715e">//would be synced automatically</span>
+            <span style="color:#66d9ef">for</span> item <span style="color:#66d9ef">in</span> items {
+                <span style="color:#66d9ef">if</span> item.recordId == <span style="color:#66d9ef">nil</span> {
+                    cloud.addLogItem(item) { cloudItem, error <span style="color:#66d9ef">in</span>
+                        item.recordId = cloudItem?.recordID.recordName
+                        <span style="color:#66d9ef">self</span>.db.saveChanges()
+                    }
+                }
+            }
+            <span style="color:#66d9ef">return</span> items
+        }
+        <span style="color:#66d9ef">catch</span>
+        {
+            print(error)
+            <span style="color:#66d9ef">return</span> []
+        }
+    }
+}</code></pre></div></p>
+
+<p>Quite simple, working fine. That makes my app minimal but functionable enough to build on it. I&rsquo;m going to continue with website part to generate reports first, and then continue with polishing my app.</p>
+
+    <div class = 'post_extra'>
+      <div class = 'copy'></div>
+    </div>
+    
+
+
+
+
+
+  </article>
+  
+  <aside>
+    <h3>Recent Posts</h3>
+<ul class='posts aside'>
+  
+  
+  
+  
+  
+  
+    
+  
+    
+    <li class = 'post_item'>
+  <a class = 'post_card' href='/2019/hello-world/' title = 'Hello World'>
+    <img class = 'post_thumbnail' src='https://jaropawlak.com/images/hello-world.png'>
+  </a>
+  <div class = 'excerpt'>
+    <div class = 'excerpt_meta'>
+    
+      <div class = 'post_copy copy'></div>
+    </div>
+    <h3 class = 'post_link'>
+      <a href='/2019/hello-world/'>Hello World</a>
+    </h3>
+    <p class = 'pale'>Hi, my name is Jaroslaw and this is my first post.
+Usually, beginning learning new …</p>
+  </div>
+</li>
+
+    
+  
+</ul>
+  </aside>
+</div>
+<script src = 'https://jaropawlak.com/js/autosize.min.js'></script>
+<script src = 'https://jaropawlak.com/js/timeago.js'></script>
+
+    </main>
+    <footer class = 'footer'>
+  <div class = 'footer_inner wrap pale'>
+    <p>&copy; <span class = 'year'></span> Jarosław Pawlak</p>    
+  </div>
+</footer>
+
+<script src = 'https://jaropawlak.com/js/index.js'></script>
+
+  </body>
+</html>
