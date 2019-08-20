@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+  <title>Xamarin forms binary size | Jarosław Pawlak</title>
+  <meta charset='utf-8'>
+  <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+  <meta http-equiv = 'X-UA-Compatible' content = 'IE=edge'>
+  <meta name = 'SKYPE_TOOLBAR' content = 'SKYPE_TOOLBAR_PARSER_COMPATIBLE' /><meta name = 'keywords' content = 'Jarosław Pawlak'>
+<meta property = 'og:locale' content = 'en_US' />
+<meta property = 'og:type' content = 'article' />
+<meta property = 'og:title' content = 'Xamarin Forms Binary Size' />
+<meta property = 'og:description' content = 'Apps on iOS are nice, Xcode is fine development environment and working in it is fun. I have and app on iOS which I would like to port also to …'>
+<meta property = 'og:url' content = 'https://jaropawlak.com/2019/xamarin-forms-binary-size/' />
+<meta property = 'og:image' content = 'https://jaropawlak.com/images/2019/big-xamarin/icon.png'/>
+<link rel='apple-touch-icon' sizes='180x180' href='https://jaropawlak.com/images/icons/apple-touch-icon.png'>
+<link rel='icon' type='image/png' sizes='32x32' href='https://jaropawlak.com/images/icons/favicon-32x32.png'>
+<link rel='icon' type='image/png' sizes='16x16' href='https://jaropawlak.com/images/icons/favicon-16x16.png'>
+<link rel='manifest' href='https://jaropawlak.com/images/icons/site.webmanifest'>
+<link rel='mask-icon' href='https://jaropawlak.com/images/icons/safari-pinned-tab.svg' color='#5bbad5'>
+<meta name='msapplication-TileColor' content='#da532c'>
+<meta name='theme-color' content='#ffffff'>
+  <link rel='canonical' href='https://jaropawlak.com/2019/xamarin-forms-binary-size/'>
+  <link rel = 'stylesheet' href = 'https://jaropawlak.com/css/main.f7fdc69e1bf81a1071613e7f9d93da0978c76552afe42eccf585cbdf09ebaa8acfb8a5f8cb74d463c64d2e691191618f0c6bcfc34a1b6d96f5d2cc6c97a3f131.css' integrity = 'sha512-9/3Gnhv4GhBxYT5/nZPaCXjHZVKv5C7M9YXL3wnrqorPuKX4y3TUY8ZNLmkRkWGPDGvPw0obbZb10sxsl6PxMQ=='>
+</head>
+
+  <body>
+    <div class = 'nav-drop'>
+  <div class = 'nav-body'>
+    
+      <a href = 'https://jaropawlak.com/about/' class = 'nav_item'>About</a>
+    
+      <a href = 'https://jaropawlak.com/' class = 'nav_item'>Blog</a>
+    
+    <div class = 'nav-close'></div>
+  </div>
+</div>
+<header class = 'nav' >
+  <nav class = 'nav-menu'>
+    <a href='https://jaropawlak.com/' class = 'nav-brand nav_item'>Jarosław Pawlak</a>
+    <div class = 'nav_bar-wrap'>
+      <div class = 'nav_bar'></div>
+    </div>
+  </nav>
+</header>
+
+
+    <main>
+      
+
+<section class = 'post_header' style = 'background-image:url(https://jaropawlak.com/images/2019/big-xamarin/icon.png);'>
+  <h1 class='post_title' itemprop='name headline'>Xamarin Forms Binary Size</h1>
+</section>
+<div class = 'post'>
+  <article class='post_content'>
+    <p>Apps on iOS are nice, Xcode is fine development environment and working in it is fun. I have and app on iOS which I would like to port also to Android. I thought about rewriting it in Xamarin.Forms.<br />
+It turned out Xamarin apps (now as a part of Visual Studio) are also nice to write. I choose Xamarin.Forms to minimize code needed per platform.
+App is available on github: <a href="https://github.com/jaropawlak/MyExpenses.Xamarin">https://github.com/jaropawlak/MyExpenses.Xamarin</a> and has almost all functionality my original app had.</p>
+
+<p>There is, however, one issue. BIG issue. It&rsquo;s the binary size.
+While my original iOS app takes less than 2MB on device, Xamarin version is around 100MB. That is not acceptable for so simple app.
+I don&rsquo;t mind apps being big for a reason. I would also accept that if it wouldn&rsquo;t make the app slow. But it makes it slow.<br />
+Have a look:</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/UFSTYK6UH2k" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+<p>Cool ha? Native is so fast!</p>
+
+<p>So, what are the sizes exactly?</p>
+
+<p><figure>
+    <img src="/images/2019/big-xamarin/original1.png"/> 
+</figure>
+
+Native app is 1.1 MB</p>
+
+<p><figure>
+    <img src="/images/2019/big-xamarin/big1.png"/> 
+</figure>
+
+Xamarin.Forms app is 101.2MB</p>
+
+<p>The question is: can I shrink the app to some reasonable size?
+First idea is to build without debugging symbols. Let&rsquo;s give it a try:</p>
+
+<figure>
+    <img src="/images/2019/big-xamarin/big2.png"/> 
+</figure>
+
+
+<p>No luck here. What about changing linker settings to link only sdk libs?
+Well it did make app smaller and also made app crash on start. A lot of googling allowed to make it work (quick tip: LinkDescription.xml in iOS project).</p>
+
+<p>What&rsquo;s next? 80megs is still a lot.</p>
+
+<p>Let&rsquo;s go with more extreme settings.<br />
+<figure>
+    <img src="/images/2019/big-xamarin/link-all.png"/> 
+</figure>
+<br />
+I checked also checkbox to &ldquo;Use the LLVM optimizing compiler&rdquo;. This resulted in best size I could make with Xamarin.Forms app:
+<figure>
+    <img src="/images/2019/big-xamarin/big3.png"/> <figcaption>
+            <h4>LLVM, link-all</h4>
+        </figcaption>
+</figure>
+</p>
+
+<p>But&hellip; app stopped working again.</p>
+
+<p>Whatever linker settings would I change and whatever googled advice would I take, I wasn&rsquo;t able to make my app small and working. You might not see it while reading this post but experiments took few weeks and I have checked quite a few options (You can see it in commit history of that repo though). It could be either big, or not very small but still not working. Setting Linker to LinkAll resulted in never ending cycle of updating LinkDescription and watching app fails again.
+I tried to help linker by removing autofac and going with my own Poor-Man&rsquo;s DI solution which didn&rsquo;t help much either. EntityFrameworkCore also uses reflection much and linker was still overoptimizing.
+Finally I gave up with LinkAll.
+My absolute smallest working file is this:</p>
+
+<figure>
+    <img src="/images/2019/big-xamarin/final.png"/> 
+</figure>
+
+
+<p>with those linker settings:</p>
+
+<p><figure>
+    <img src="/images/2019/big-xamarin/final_settings.png"/> 
+</figure>
+
+And with LinkDescription.xml file you can find in the repo.<br />
+Half of original size. App is still slower than fully native option but is better than at the beginning. Have a look.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/RMvAIPFhl88" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+<p>If you are struggling to make your app smaller, my takeaways for shrinking app in Xamarin.Forms are:<br />
+- Link Framework and SDK, then if it doesn&rsquo;t work - all answers are in LinkDescription.
+- Don&rsquo;t bother with LinkAll.<br />
+- Removing autofac didn&rsquo;t make all things much better. Keep your code clean.<br />
+- Don&rsquo;t touch &ldquo;incremental build&rdquo; setting it will make app bigger :)<br />
+- If you write app that has to be fast (or small. Or both): think again if you must use Xamarin for that.<br />
+- Last - shrinking app can be very punishing work. Try to have some fun!</p>
+
+<p>Bonus:
+ app size with incremental build checked:
+ <figure>
+    <img src="/images/2019/big-xamarin/incremental.png"/> 
+</figure>
+</p>
+
+<p>Have a nice time shinking your app!</p>
+
+    <div class = 'post_extra'>
+      <div class = 'copy'></div>
+    </div>
+    
+
+
+
+
+
+  </article>
+  
+  <aside>
+    <h3>Recent Posts</h3>
+<ul class='posts aside'>
+  
+  
+  
+  
+  
+  
+    
+  
+    
+    <li class = 'post_item'>
+  <a class = 'post_card' href='/2019/coredata-with-cloudkit/' title = 'Coredata With Cloudkit'>
+    <img class = 'post_thumbnail' src='https://jaropawlak.com/images/coredata-cloudkit/coredata.png'>
+  </a>
+  <div class = 'excerpt'>
+    <div class = 'excerpt_meta'>
+    
+      
+      <a href = 'https://jaropawlak.com/tags/swift' class = 'post_tag'>
+        swift
+      </a>
+      
+      <div class = 'post_copy copy'></div>
+    </div>
+    <h3 class = 'post_link'>
+      <a href='/2019/coredata-with-cloudkit/'>Coredata With Cloudkit</a>
+    </h3>
+    <p class = 'pale'>With iOS 13 we&rsquo;ll get new cool feature - coredata db with cloudkit backup. Exactly …</p>
+  </div>
+</li>
+
+    
+  
+</ul>
+  </aside>
+</div>
+<script src = 'https://jaropawlak.com/js/autosize.min.js'></script>
+<script src = 'https://jaropawlak.com/js/timeago.js'></script>
+
+    </main>
+    <footer class = 'footer'>
+  <div class = 'footer_inner wrap pale'>
+    <p>&copy; <span class = 'year'></span> Jarosław Pawlak</p>    
+  </div>
+</footer>
+
+<script src = 'https://jaropawlak.com/js/index.js'></script>
+
+  </body>
+</html>

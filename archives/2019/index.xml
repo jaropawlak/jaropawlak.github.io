@@ -6,10 +6,20 @@
     <description>Recent content in 2019 on Jarosław Pawlak</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 07 Aug 2019 22:02:16 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 16 Aug 2019 20:01:56 +0200</lastBuildDate>
     
 	<atom:link href="https://jaropawlak.com/archives/2019/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Xamarin Forms Binary Size</title>
+      <link>https://jaropawlak.com/2019/xamarin-forms-binary-size/</link>
+      <pubDate>Fri, 16 Aug 2019 20:01:56 +0200</pubDate>
+      
+      <guid>https://jaropawlak.com/2019/xamarin-forms-binary-size/</guid>
+      <description>Apps on iOS are nice, Xcode is fine development environment and working in it is fun. I have and app on iOS which I would like to port also to Android. I thought about rewriting it in Xamarin.Forms.
+It turned out Xamarin apps (now as a part of Visual Studio) are also nice to write. I choose Xamarin.Forms to minimize code needed per platform. App is available on github: https://github.com/jaropawlak/MyExpenses.Xamarin and has almost all functionality my original app had.</description>
+    </item>
     
     <item>
       <title>Cloudkitjs</title>
@@ -17,15 +27,6 @@
       <pubDate>Wed, 07 Aug 2019 22:02:16 +0200</pubDate>
       
       <guid>https://jaropawlak.com/draft/cloudkitjs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Xamarin Forms Binary Size</title>
-      <link>https://jaropawlak.com/draft/xamarin-forms-binary-size/</link>
-      <pubDate>Wed, 07 Aug 2019 22:01:56 +0200</pubDate>
-      
-      <guid>https://jaropawlak.com/draft/xamarin-forms-binary-size/</guid>
       <description></description>
     </item>
     

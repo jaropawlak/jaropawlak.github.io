@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>iOs on Jarosław Pawlak</title>
+    <link>https://jaropawlak.com/tags/ios/</link>
+    <description>Recent content in iOs on Jarosław Pawlak</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 16 Aug 2019 20:01:56 +0200</lastBuildDate>
+    
+	<atom:link href="https://jaropawlak.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Xamarin Forms Binary Size</title>
+      <link>https://jaropawlak.com/2019/xamarin-forms-binary-size/</link>
+      <pubDate>Fri, 16 Aug 2019 20:01:56 +0200</pubDate>
+      
+      <guid>https://jaropawlak.com/2019/xamarin-forms-binary-size/</guid>
+      <description>Apps on iOS are nice, Xcode is fine development environment and working in it is fun. I have and app on iOS which I would like to port also to Android. I thought about rewriting it in Xamarin.Forms.
+It turned out Xamarin apps (now as a part of Visual Studio) are also nice to write. I choose Xamarin.Forms to minimize code needed per platform. App is available on github: https://github.com/jaropawlak/MyExpenses.Xamarin and has almost all functionality my original app had.</description>
+    </item>
+    
+  </channel>
+</rss>
