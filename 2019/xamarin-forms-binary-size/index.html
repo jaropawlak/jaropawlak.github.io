@@ -111,7 +111,7 @@ I checked also checkbox to &ldquo;Use the LLVM optimizing compiler&rdquo;. This 
 
 <p>But&hellip; app stopped working again.</p>
 
-<p>Whatever linker settings would I change and whatever googled advice would I take, I wasn&rsquo;t able to make my app small and working. You might not see it while reading this post but experiments took few weeks and I have checked quite a few options (You can see it in commit history of that repo though). It could be either big, or not very small but still not working. Setting Linker to LinkAll resulted in never ending cycle of updating LinkDescription and watching app fails again.
+<p>Whatever linker settings would I change and whatever googled advice would I take, I wasn&rsquo;t able to make my app small and working. You might not see it while reading this post but experiments took few days of punishing change-build-deploy-see_it_crashes cycle. It could be either big, or not very small but still not working. Setting Linker to LinkAll resulted in never ending cycle of updating LinkDescription and watching app fails again.
 I tried to help linker by removing autofac and going with my own Poor-Man&rsquo;s DI solution which didn&rsquo;t help much either. EntityFrameworkCore also uses reflection much and linker was still overoptimizing.
 Finally I gave up with LinkAll.
 My absolute smallest working file is this:</p>
