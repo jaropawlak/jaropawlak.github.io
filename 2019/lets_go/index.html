@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+  <title>Let&#39;s g o | Jarosław Pawlak</title>
+  <meta charset='utf-8'>
+  <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+  <meta http-equiv = 'X-UA-Compatible' content = 'IE=edge'>
+  <meta name = 'SKYPE_TOOLBAR' content = 'SKYPE_TOOLBAR_PARSER_COMPATIBLE' />
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-146157179-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-146157179-1');
+</script>
+<meta name = 'keywords' content = 'Jarosław Pawlak'>
+<meta property = 'og:locale' content = 'en_US' />
+<meta property = 'og:type' content = 'article' />
+<meta property = 'og:title' content = 'Let&#39;s GO' />
+<meta property = 'og:description' content = 'C# is a great language. Each new version takes best solutions from other languages and keeps it very modern. However writing C# all the time both at …'>
+<meta property = 'og:url' content = 'https://jaropawlak.com/2019/lets_go/' />
+<meta property = 'og:image' content = 'https://jaropawlak.com/images/2019/lets_go/go-title.png'/>
+<link rel='apple-touch-icon' sizes='180x180' href='https://jaropawlak.com/images/icons/apple-touch-icon.png'>
+<link rel='icon' type='image/png' sizes='32x32' href='https://jaropawlak.com/images/icons/favicon-32x32.png'>
+<link rel='icon' type='image/png' sizes='16x16' href='https://jaropawlak.com/images/icons/favicon-16x16.png'>
+<link rel='manifest' href='https://jaropawlak.com/images/icons/site.webmanifest'>
+<link rel='mask-icon' href='https://jaropawlak.com/images/icons/safari-pinned-tab.svg' color='#5bbad5'>
+<meta name='msapplication-TileColor' content='#da532c'>
+<meta name='theme-color' content='#ffffff'>
+  <link rel='canonical' href='https://jaropawlak.com/2019/lets_go/'>
+  <link rel = 'stylesheet' href = 'https://jaropawlak.com/css/main.f7fdc69e1bf81a1071613e7f9d93da0978c76552afe42eccf585cbdf09ebaa8acfb8a5f8cb74d463c64d2e691191618f0c6bcfc34a1b6d96f5d2cc6c97a3f131.css' integrity = 'sha512-9/3Gnhv4GhBxYT5/nZPaCXjHZVKv5C7M9YXL3wnrqorPuKX4y3TUY8ZNLmkRkWGPDGvPw0obbZb10sxsl6PxMQ=='>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+</head>
+
+  <body>
+    <div class = 'nav-drop'>
+  <div class = 'nav-body'>
+    
+      <a href = 'https://jaropawlak.com/about/' class = 'nav_item'>About</a>
+    
+      <a href = 'https://jaropawlak.com/' class = 'nav_item'>Blog</a>
+    
+    <div class = 'nav-close'></div>
+  </div>
+</div>
+<header class = 'nav' >
+  <nav class = 'nav-menu'>
+    <a href='https://jaropawlak.com/' class = 'nav-brand nav_item'>Jarosław Pawlak</a>
+    <div class = 'nav_bar-wrap'>
+      <div class = 'nav_bar'></div>
+    </div>
+  </nav>
+</header>
+
+
+    <main>
+      
+
+<section class = 'post_header' style = 'background-image:url(https://jaropawlak.com/images/2019/lets_go/go-title.png);'>
+  <h1 class='post_title' itemprop='name headline'>Let&#39;s GO</h1>
+</section>
+<div class = 'post'>
+  <article class='post_content'>
+    <p>C# is a great language. Each new version takes best solutions from other languages and keeps it very modern. However writing C# all the time both at work and at home feels boring sometimes. I like learning new languages as this provides good exercise.
+I&rsquo;ve decided to write a simple go program. And because I didn&rsquo;t have a better idea I took an app that I had already written in .NET Core and created it again in Go.
+The app&rsquo;s goal is to download history of average daily cryptocurrency value from exchange Binance.
+I want it to get all crypto pairs from beginning of time until now.</p>
+
+<p>I’ve started with simplest thing ever:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">hostUrl</span> = <span style="color:#e6db74">&#34;https://binance.com&#34;</span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">apiResourceUri</span> = <span style="color:#e6db74">&#34;/api/v1/klines&#34;</span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">apiGetSymbolUri</span> = <span style="color:#e6db74">&#34;/api/v1/exchangeInfo&#34;</span>
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">downloadLocation</span> = <span style="color:#e6db74">&#34;data&#34;</span> <span style="color:#f92672">//</span> <span style="color:#a6e22e">folder</span> <span style="color:#a6e22e">where</span> <span style="color:#a6e22e">I</span><span style="color:#960050;background-color:#1e0010">’</span><span style="color:#a6e22e">ll</span> <span style="color:#a6e22e">save</span> <span style="color:#a6e22e">data</span></code></pre></div>
+
+<p>So far so good</p>
+
+<p>Opening url <a href="http://binance.com/api/v1/exchangeInfo">http://binance.com/api/v1/exchangeInfo</a> will get us among other things list of all symbols that this exchange handles.
+Let’s see part of response:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#960050;background-color:#1e0010">[…]</span>
+    <span style="color:#f92672">&#34;exchangeFilters&#34;</span>: [],
+    <span style="color:#f92672">&#34;symbols&#34;</span>: [
+        {
+            <span style="color:#f92672">&#34;symbol&#34;</span>: <span style="color:#e6db74">&#34;ETHBTC&#34;</span>,    <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">&lt;-------</span> <span style="color:#960050;background-color:#1e0010">here</span> <span style="color:#960050;background-color:#1e0010">!</span>
+            <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;TRADING&#34;</span>,
+            <span style="color:#f92672">&#34;baseAsset&#34;</span>: <span style="color:#e6db74">&#34;ETH&#34;</span>,
+            <span style="color:#f92672">&#34;baseAssetPrecision&#34;</span>: <span style="color:#ae81ff">8</span>,
+            <span style="color:#f92672">&#34;quoteAsset&#34;</span>: <span style="color:#e6db74">&#34;BTC&#34;</span>,
+            <span style="color:#f92672">&#34;quotePrecision&#34;</span>: <span style="color:#ae81ff">8</span>,
+            <span style="color:#f92672">&#34;orderTypes&#34;</span>: [
+                <span style="color:#e6db74">&#34;LIMIT&#34;</span>,
+                <span style="color:#e6db74">&#34;LIMIT_MAKER&#34;</span>,
+                <span style="color:#e6db74">&#34;MARKET&#34;</span>,
+                <span style="color:#e6db74">&#34;STOP_LOSS_LIMIT&#34;</span>,
+                <span style="color:#e6db74">&#34;TAKE_PROFIT_LIMIT&#34;</span>
+            ],
+            <span style="color:#f92672">&#34;icebergAllowed&#34;</span>: <span style="color:#66d9ef">true</span>,
+            <span style="color:#f92672">&#34;isSpotTradingAllowed&#34;</span>: <span style="color:#66d9ef">true</span>,
+            <span style="color:#f92672">&#34;isMarginTradingAllowed&#34;</span>: <span style="color:#66d9ef">true</span>,
+            <span style="color:#f92672">&#34;filters&#34;</span>: [<span style="color:#960050;background-color:#1e0010">…</span>]
+        },
+        {
+            <span style="color:#f92672">&#34;symbol&#34;</span>: <span style="color:#e6db74">&#34;LTCBTC&#34;</span>,   <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">&lt;-------</span> <span style="color:#960050;background-color:#1e0010">here</span> <span style="color:#960050;background-color:#1e0010">!</span>
+            <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;TRADING&#34;</span>,
+            <span style="color:#f92672">&#34;baseAsset&#34;</span>: <span style="color:#e6db74">&#34;LTC&#34;</span>,
+            <span style="color:#f92672">&#34;baseAssetPrecision&#34;</span>: <span style="color:#ae81ff">8</span>,
+            <span style="color:#f92672">&#34;quoteAsset&#34;</span>: <span style="color:#e6db74">&#34;BTC&#34;</span>,
+            <span style="color:#f92672">&#34;quotePrecision&#34;</span>: <span style="color:#ae81ff">8</span>,
+            <span style="color:#f92672">&#34;orderTypes&#34;</span>: [
+                <span style="color:#e6db74">&#34;LIMIT&#34;</span>,
+                <span style="color:#e6db74">&#34;LIMIT_MAKER&#34;</span>,
+                <span style="color:#e6db74">&#34;MARKET&#34;</span>,
+                <span style="color:#e6db74">&#34;STOP_LOSS_LIMIT&#34;</span>,
+                <span style="color:#e6db74">&#34;TAKE_PROFIT_LIMIT&#34;</span>
+            ],
+            <span style="color:#f92672">&#34;icebergAllowed&#34;</span>: <span style="color:#66d9ef">true</span>,
+            <span style="color:#f92672">&#34;isSpotTradingAllowed&#34;</span>: <span style="color:#66d9ef">true</span>,
+            <span style="color:#f92672">&#34;isMarginTradingAllowed&#34;</span>: <span style="color:#66d9ef">false</span>,
+            <span style="color:#f92672">&#34;filters&#34;</span>: [<span style="color:#960050;background-color:#1e0010">…</span>]
+        },
+        {
+            <span style="color:#f92672">&#34;symbol&#34;</span>: <span style="color:#e6db74">&#34;BNBBTC&#34;</span>,
+            <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;TRADING&#34;</span>,
+            <span style="color:#f92672">&#34;baseAsset&#34;</span>: <span style="color:#e6db74">&#34;BNB&#34;</span></code></pre></div></p>
+
+<p>and so on.
+I need only the „symbols” array and only „symbol” inside it. My model to deserialise the response to would look like this:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Symbol</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#a6e22e">Symbol</span> <span style="color:#66d9ef">string</span>
+}
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">GetSymbolsResponse</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#a6e22e">Symbols</span> []<span style="color:#a6e22e">Symbol</span>
+}</code></pre></div>
+
+<p>My method that returns all symbol looks like this:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">//Gets all available symbols from binance
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">GetSymbols</span>() []<span style="color:#66d9ef">string</span> {
+    <span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">hostUrl</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">apiGetSymbolUri</span>)
+
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        panic(<span style="color:#a6e22e">err</span>)          <span style="color:#75715e">// if there is an error, just stop and write about it
+</span><span style="color:#75715e"></span>    }
+    <span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">resp</span>.<span style="color:#a6e22e">Body</span>.<span style="color:#a6e22e">Close</span>()           <span style="color:#75715e">//  this is like a &#34;finally&#34; block in c#, it will be executed on exiting function
+</span><span style="color:#75715e"></span>
+    <span style="color:#a6e22e">response</span> <span style="color:#f92672">:=</span> new(<span style="color:#a6e22e">GetSymbolsResponse</span>)
+    <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">NewDecoder</span>(<span style="color:#a6e22e">resp</span>.<span style="color:#a6e22e">Body</span>).<span style="color:#a6e22e">Decode</span>(<span style="color:#a6e22e">response</span>)
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(len(<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">Symbols</span>))
+    <span style="color:#a6e22e">result</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">string</span>, <span style="color:#ae81ff">0</span>)
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">val</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">Symbols</span> {
+        <span style="color:#a6e22e">result</span> = append(<span style="color:#a6e22e">result</span>, <span style="color:#a6e22e">val</span>.<span style="color:#a6e22e">Symbol</span>)
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>
+}</code></pre></div></p>
+
+<p>In order for this code to work, I need to add imports (the method above uses http, fmt and json).
+I put imports right after my package main:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;encoding/json&#34;</span>
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;net/http&#34;</span>
+)</code></pre></div>
+
+<p>Now when I have all symbols I’m interested in, I want to download all historical data for them. I will download it a month at a time and save response in my data folder. Outline of my program will be something like:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">loadHistoricalData</span>() {
+
+    <span style="color:#a6e22e">checkDownloadLocation</span>() <span style="color:#75715e">// create data folder if doesn’t exist
+</span><span style="color:#75715e"></span>
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Getting symbols&#34;</span>)
+    <span style="color:#a6e22e">r</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">GetSymbols</span>() 
+    <span style="color:#a6e22e">count</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">r</span>)
+
+    <span style="color:#a6e22e">syncChannel</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">bool</span>, <span style="color:#ae81ff">3</span>) <span style="color:#75715e">// concurrent jobs at most
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">jobsCount</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Found %v symbols&#34;</span>, <span style="color:#a6e22e">count</span>)
+
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">r</span> {
+        <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">year</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>().<span style="color:#a6e22e">Year</span>(); <span style="color:#a6e22e">year</span> &gt; <span style="color:#ae81ff">2010</span>; <span style="color:#a6e22e">year</span><span style="color:#f92672">--</span> { <span style="color:#75715e">// get all data since 2010
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">month</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">12</span>; <span style="color:#a6e22e">month</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">month</span><span style="color:#f92672">--</span> {
+                <span style="color:#a6e22e">jobsCount</span><span style="color:#f92672">++</span>
+                <span style="color:#66d9ef">go</span> <span style="color:#a6e22e">downloadMonthOfData</span>(<span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">year</span>, <span style="color:#a6e22e">month</span>, <span style="color:#a6e22e">syncChannel</span>)
+            }
+        }
+    }
+
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">jobsCount</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+        <span style="color:#a6e22e">syncChannel</span> <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">true</span>
+    }
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;All done&#34;</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+
+    <span style="color:#a6e22e">loadHistoricalData</span>()
+}</code></pre></div>
+
+<p>Channels look strange but my goal is to limit number of concurrent jobs that are being run. In order to do so I use syncChannel. What it does is pause thread that tries to put fourth item to the channel (because I have set it&rsquo;s capacity to 3) until there is a place (which means some other thread has consumed one of the 3 items in channel) and also makes thread which tries to take item from empty channel to wait until something shows up there. I know how many jobs total number is so I&rsquo;m trying to put that many items in syncChannel (pausing if there are already 3 items not picked up by a worker thread). Function downloadMonthOfData looks like this:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">downloadMonthOfData</span>(<span style="color:#a6e22e">symbol</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">year</span>, <span style="color:#a6e22e">month</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">c</span> <span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">bool</span>) {
+
+	<span style="color:#a6e22e">signal</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">c</span> <span style="color:#75715e">// wait until signal to start
+</span><span style="color:#75715e"></span>
+	<span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">signal</span> {
+		<span style="color:#66d9ef">return</span>
+	}
+	<span style="color:#a6e22e">start</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Date</span>(<span style="color:#a6e22e">year</span>, <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Month</span>(<span style="color:#a6e22e">month</span>), <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">UTC</span>)
+	<span style="color:#a6e22e">end</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Date</span>(<span style="color:#a6e22e">year</span>, <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Month</span>(<span style="color:#a6e22e">month</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>), <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">UTC</span>)
+
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">start</span>.<span style="color:#a6e22e">After</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()) {
+		<span style="color:#66d9ef">return</span>
+	}
+
+	<span style="color:#a6e22e">fileName</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%s_%d_%02d.json&#34;</span>, <span style="color:#a6e22e">symbol</span>, <span style="color:#a6e22e">year</span>, <span style="color:#a6e22e">month</span>)
+
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Downloading: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">fileName</span>)
+
+	<span style="color:#a6e22e">pathToFile</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">Join</span>(<span style="color:#a6e22e">downloadLocation</span>, <span style="color:#a6e22e">fileName</span>)
+
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Stat</span>(<span style="color:#a6e22e">pathToFile</span>); <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">IsNotExist</span>(<span style="color:#a6e22e">err</span>) {
+		<span style="color:#a6e22e">r</span>, <span style="color:#a6e22e">e</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">createGetSymbolUrl</span>(<span style="color:#a6e22e">symbol</span>, <span style="color:#a6e22e">start</span>.<span style="color:#a6e22e">Unix</span>()<span style="color:#f92672">*</span><span style="color:#ae81ff">1000</span>, <span style="color:#a6e22e">end</span>.<span style="color:#a6e22e">Unix</span>()<span style="color:#f92672">*</span><span style="color:#ae81ff">1000</span>))
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">e</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+			panic(<span style="color:#a6e22e">e</span>)
+		}
+		<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Body</span>.<span style="color:#a6e22e">Close</span>()
+		<span style="color:#a6e22e">out</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Create</span>(<span style="color:#a6e22e">pathToFile</span>)
+		<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">Close</span>()
+		<span style="color:#a6e22e">io</span>.<span style="color:#a6e22e">Copy</span>(<span style="color:#a6e22e">out</span>, <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Body</span>)
+	}
+
+}</code></pre></div>
+
+<p>That&rsquo;s it. Whole program is available here: [<a href="https://github.com/jaropawlak/getBinanceStats">https://github.com/jaropawlak/getBinanceStats</a>]. I needed to add some more imports to make it work so not every line of code is in this article but all is there in github ;).
+This is my humble start in go. It wasn&rsquo;t hard and all questions/doubts I had were resolved after a moment of googling it. Very pleasant experience I must say. For sure this is not my last date with go. If you have any doubts to try it yourself, I highly recommend it.</p>
+
+    <div class = 'post_extra'>
+      <div class = 'copy'></div>
+    </div>
+    
+
+
+
+
+
+  </article>
+  
+  <aside>
+    <h3>Recent Posts</h3>
+<ul class='posts aside'>
+  
+  
+  
+  
+  
+  
+    
+  
+    
+    <li class = 'post_item'>
+  <a class = 'post_card' href='/2019/xamarin-forms-binary-size/' title = 'Xamarin Forms Binary Size'>
+    <img class = 'post_thumbnail' src='https://jaropawlak.com/images/2019/big-xamarin/icon.png'>
+  </a>
+  <div class = 'excerpt'>
+    <div class = 'excerpt_meta'>
+    
+      
+      <a href = 'https://jaropawlak.com/tags/c' class = 'post_tag'>
+        c#
+      </a>
+      
+      <div class = 'post_copy copy'></div>
+    </div>
+    <h3 class = 'post_link'>
+      <a href='/2019/xamarin-forms-binary-size/'>Xamarin Forms Binary Size</a>
+    </h3>
+    <p class = 'pale'>Apps on iOS are nice, Xcode is fine development environment and working in it is fun. I …</p>
+  </div>
+</li>
+
+    
+  
+</ul>
+  </aside>
+</div>
+<script src = 'https://jaropawlak.com/js/autosize.min.js'></script>
+<script src = 'https://jaropawlak.com/js/timeago.js'></script>
+
+    </main>
+    <footer class = 'footer'>
+  <div class = 'footer_inner wrap pale'>
+    <p>&copy; <span class = 'year'></span> Jarosław Pawlak</p>    
+  </div>
+</footer>
+
+<script src = 'https://jaropawlak.com/js/index.js'></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+<script>
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#000"
+    },
+    "button": {
+      "background": "#f1d600"
+    }
+  }
+});
+</script>
+  </body>
+</html>

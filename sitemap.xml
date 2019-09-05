@@ -3,6 +3,35 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jaropawlak.com/</loc>
+    <lastmod>2019-09-04T17:50:49+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaropawlak.com/2019/lets_go/</loc>
+    <lastmod>2019-09-04T17:50:49+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaropawlak.com/post/</loc>
+    <lastmod>2019-09-04T17:50:49+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaropawlak.com/tags/</loc>
+    <lastmod>2019-09-04T17:50:49+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaropawlak.com/tags/go/</loc>
+    <lastmod>2019-09-04T17:50:49+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jaropawlak.com/archives/2019/</loc>
     <lastmod>2019-08-16T20:01:56+02:00</lastmod>
     <priority>0</priority>
@@ -10,24 +39,6 @@
   
   <url>
     <loc>https://jaropawlak.com/archives/</loc>
-    <lastmod>2019-08-16T20:01:56+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jaropawlak.com/</loc>
-    <lastmod>2019-08-16T20:01:56+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jaropawlak.com/post/</loc>
-    <lastmod>2019-08-16T20:01:56+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jaropawlak.com/tags/</loc>
     <lastmod>2019-08-16T20:01:56+02:00</lastmod>
     <priority>0</priority>
   </url>
